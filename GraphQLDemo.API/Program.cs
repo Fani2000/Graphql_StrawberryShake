@@ -1,3 +1,4 @@
+using GraphQLDemo.API.Extensions;
 using GraphQLDemo.API.GraphQL.Queries;
 using GraphQLDemo.API.Services;
 using HotChocolate.Language;
@@ -20,6 +21,8 @@ builder
     .RegisterDbContextFactory<SchoolDbContext>();
 
 var app = builder.Build();
+
+app.ApplyMigrations<SchoolDbContext>();
 
 app.MapGraphQL();
 
