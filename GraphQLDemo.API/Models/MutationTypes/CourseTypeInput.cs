@@ -8,3 +8,5 @@ public class CourseTypeInput
     public Subject Subject { get; set; }
     public Guid InstructorId { get; set; }
 }
+
+// Use FluentValidators to validate the inputs passed here 

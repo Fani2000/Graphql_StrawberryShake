@@ -7,9 +7,9 @@ namespace GraphQLDemo.API.GraphQL.Queries;
 [ExtendObjectType(OperationType.Query)]
 public class CourseQueries
 {
-    private  Faker<InstructorType> _instructorFaker;
-    private  Faker<StudentType> _studentFaker;
-    private  Faker<CourseType> _courseFaker;
+    private readonly Faker<InstructorType> _instructorFaker;
+    private readonly Faker<StudentType> _studentFaker;
+    private readonly Faker<CourseType> _courseFaker;
 
     public CourseQueries()
     {
