@@ -11,7 +11,6 @@ public class Subscription
     public CourseResult CourseCreated([EventMessage] CourseResult course) => course;
 
     [SubscribeAndResolve]
-    [Obsolete("Obsolete")]
     public ValueTask<ISourceStream<CourseResult>> CourseUpdated(Guid courseId, [Service] ITopicEventReceiver topicEventReceiver)
     {
         string topicName = $"{courseId}_{nameof(Subscription.CourseUpdated)}";

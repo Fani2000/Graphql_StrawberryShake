@@ -2,6 +2,7 @@
 global using global::GraphQLDemo.API;
 global using global::GreenDonut;
 global using global::HotChocolate;
+global using global::HotChocolate.Data;
 global using global::HotChocolate.Types;
 global using global::HotChocolate.Types.Relay;
 global using global::Microsoft.AspNetCore.Builder;

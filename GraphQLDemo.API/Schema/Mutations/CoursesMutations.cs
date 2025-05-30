@@ -22,6 +22,7 @@ public class CoursesMutations
 
         _courses.Add(course);
         
+        // Update/Create an event stream for the CourseCreated mutation
         await topicEventSender.SendAsync(nameof(Subscription.CourseCreated), course);
 
         return course;
@@ -36,10 +37,12 @@ public class CoursesMutations
             throw new GraphQLException(new Error("Course not found.", "COURSE_NOT_FOUND"));
         }
 
+        // Auto-Mapper
         course.Name = courseInput.Name;
         course.Subject = courseInput.Subject;
         course.InstructorId = courseInput.InstructorId;
 
+        // Update/Create an event stream for the CourseUpdated mutation
         string updateCourseTopic = $"{course.Id}_{nameof(Subscription.CourseUpdated)}";
         await topicEventSender.SendAsync(updateCourseTopic, course);
 
